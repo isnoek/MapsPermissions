@@ -16,6 +16,10 @@ namespace TestApp
         public MainPage()
         {
             InitializeComponent();
+            if (Device.RuntimePlatform == Device.iOS)
+            {
+                this.userMap.IsShowingUser = true;
+            }
         }
 
         public void toggleUserOnMap()

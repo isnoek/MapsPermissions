@@ -41,22 +41,17 @@ namespace TestApp.Droid
             {
                 if ((grantResults.Length == 2) && (grantResults[0] == (int) Android.Content.PM.Permission.Granted))
                 {
-                    this.showText("OnRequest: permission granted");
+
                     var parent = parentApp as IPermissionsChanged;
+                    
                     parent.permissionsChanged(new GeneralPermission[]{GeneralPermission.Location});
                 }
-                else
-                {
-                    this.showText("OnRequest: permission denied");
-                }
+                
             }
             else
             {
                 base.OnRequestPermissionsResult(requestCode,permissions,grantResults);
             }
-            //Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
-
-            //base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
 
         protected override void OnStart()
